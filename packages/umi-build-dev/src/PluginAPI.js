@@ -147,13 +147,13 @@ export default class PluginAPI {
          * 添加service的pluginMethods方法, 被api代理, 插件调用时传入对应的hook
          * service调用applyPlugins时传入对应的opts 一般包含initialValue
          */
-        this.service.pluginMethods[name] = (...args) => {
+        this.service.pluginMethods[name] = (...args) => { // 插件调用api时传入的Hooks 或 值
             if (apply) {
                 this.register(name, opts => {
                     return apply(opts, ...args);
                 })
             } else if (type === this.API_TYPE.ADD) {
-                this.register(name, opts => { // 这里的opts包含initialValue, args; applyPlugins时传入, memo是reduce的hooks调用
+                this.register(name, opts => { // service调用时, 这里的opts包含initialValue, args; applyPlugins时传入, memo是reduce的hooks调用
                     return (opts.memo || []).concat(
                         typeof args[0] === 'function'
                             ? args[0](opts.memo, opts.args)

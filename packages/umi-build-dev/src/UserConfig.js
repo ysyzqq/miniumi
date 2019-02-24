@@ -118,7 +118,7 @@ export default class UserConfig {
         this.relativeFile = null;
         this.watch = watch;
         this.unwatch = unwatch;
-        this.initConfigPlugins();
+        this.initConfigPlugins(); // 初始化配置插件 {name,onChange,validate}
     }
 
     initConfigPlugins() {
