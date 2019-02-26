@@ -2,10 +2,10 @@ import assert from 'assert';
 import { join, relative, extname } from 'path';
 import { existsSync, readFileSync } from 'fs';
 import { isPlainObject } from 'lodash';
-import ejs from 'ejs';
-import { minify } from 'html-minifier';
+import ejs from 'ejs'; // ejs模板引擎
+import { minify } from 'html-minifier'; // html压缩 通过node支持
 import { matchRoutes } from 'react-router-config';
-import cheerio from 'cheerio';
+import cheerio from 'cheerio'; // 服务端用的jquery 
 import formatChunksMap from './formatChunksMap';
 
 export default class HTMLGenerator {
