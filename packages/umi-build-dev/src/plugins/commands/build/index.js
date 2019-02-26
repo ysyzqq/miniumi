@@ -12,7 +12,7 @@ export default function (api) {
             description: 'building for production',
         },
         () => {
-            const RoutesManager = getRouteManager(service);
+            const RoutesManager = getRouteManager(service); // 生成routes
             RoutesManager.fetchRoutes();
 
             process.env.NODE_ENV = 'production';

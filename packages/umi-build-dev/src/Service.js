@@ -131,7 +131,7 @@ export default class Service {
                 );
                 plugin.onOptionChange = fn;
             };
-            apply(api);
+            apply(api, opts);
             plugin._api = api;
         } catch (e) {
             if (process.env.UMI_TEST) {
@@ -241,6 +241,11 @@ export default class Service {
         load(localPath);
     }
 
+    /**
+     * 
+     * @param {*} file 文件路径名 可以是index.js 也可以带文件夹路径 js/index.js
+     * @param {*} content 读取的文件内容 string
+     */
     writeTmpFile(file, content) {
         const paths = this.paths;
         const path = join(paths.absTmpDirPath, file);
